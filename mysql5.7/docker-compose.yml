@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  mysql57:
+    container_name: mysql57
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql57_db_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: "${MYSQL_DATABASE:-db}"
+      MYSQL_USER: "${MYSQL_USER:-user}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD:-password}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-password}"
+    networks:
+      - mysql57-phpmyadmin
+
+  #phpmyadmin:
+  #  image: phpmyadmin/phpmyadmin
+  #  container_name: "mysql57_phpmyadmin"
+  #  ports:
+  #    - 9090:80
+  #  environment:
+  #    PMA_HOST: mysql
+  #    PMA_PORT: 3306
+  #  depends_on:
+  #    - mysql57
+  #  networks:
+  #    - mysql57-phpmyadmin
+
+networks:
+  mysql57-phpmyadmin:
+
+volumes:
+  mysql57_db_data:
