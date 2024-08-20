@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       PGDATA: /data/postgres
     volumes:
-       - postgres:/data/postgres
+       - postgres:/data/postgres  
     ports:
       - "5432:5432"
     networks:
@@ -38,4 +38,10 @@ networks:
 
 volumes:
     postgres:
+      driver: local
+      driver_opts:
+        type: none
+        o: bind
+        device: C:/volumes/postgres
     pgadmin:
+    

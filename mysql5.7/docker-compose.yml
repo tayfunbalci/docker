@@ -10,7 +10,7 @@ services:
       - mysql57_db_data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: "${MYSQL_DATABASE:-db}"
-      MYSQL_USER: "${MYSQL_USER:-user}"
+      MYSQL_USER: "${MYSQL_USER:-aironev}"
       MYSQL_PASSWORD: "${MYSQL_PASSWORD:-password}"
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-password}"
     networks:
